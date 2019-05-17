@@ -26,6 +26,54 @@ exports.list = async (ctx) => {
       {
         id: 3,
         ip: '127.0.0.3',
+        schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 4,
+        ip: '127.0.0.4',
+        schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 5,
+        ip: '127.0.0.5',
+        schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 6,
+        ip: '127.0.0.6',
+        schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 7,
+        ip: '127.0.0.7',
+        schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 8,
+        ip: '127.0.0.8',
+        schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 9,
+        ip: '127.0.0.9',
         schema: 'db',
         name: 'aaa',
         password: 'bbb',
@@ -42,7 +90,7 @@ exports.list = async (ctx) => {
 */
 exports.detail = async (ctx) => {
   const { id } = ctx.params;
-  console.log('>>>>> id', id);
+  console.log('connection detail id', id);
   try {
     ctx.body = {
       id: 1,
