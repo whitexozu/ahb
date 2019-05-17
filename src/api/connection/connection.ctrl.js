@@ -4,6 +4,7 @@ const Joi = require('joi');
   GET /api/connection/ilst
 */
 exports.list = async (ctx) => {
+  console.log('connection list');
   try {
     ctx.body = [
       {
@@ -18,6 +19,14 @@ exports.list = async (ctx) => {
         id: 2,
         ip: '127.0.0.2',
         schema: 'dump',
+        name: 'aaa',
+        password: 'bbb',
+        use: true
+      },
+      {
+        id: 3,
+        ip: '127.0.0.3',
+        schema: 'db',
         name: 'aaa',
         password: 'bbb',
         use: true
