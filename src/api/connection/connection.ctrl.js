@@ -1,3 +1,5 @@
+/* eslint-disable object-shorthand */
+/* eslint-disable prefer-template */
 const Joi = require('joi');
 
 /*
@@ -93,8 +95,8 @@ exports.detail = async (ctx) => {
   console.log('connection detail id', id);
   try {
     ctx.body = {
-      id: 1,
-      ip: '127.0.0.1',
+      id: id,
+      ip: '127.0.0.' + id,
       schema: 'test',
       name: 'aaa',
       password: 'bbb',
