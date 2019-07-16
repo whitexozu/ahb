@@ -65,21 +65,32 @@ exports.AddSchema = async (ctx) => {
 exports.GetSchema = async (ctx) => {
   const { ConnectionName } = ctx.params;
   console.log('ctx.params', ctx.params);
-  console.log('root GetSchemaList', ConnectionName);
+  console.log('root GetSchema', ConnectionName);
   try {
     ctx.body = {
-      Success: true,
-      ConnectionName: 'odbc connection',
-      Tables: [{
-        CatalogName: 'catalog',
-        SchemaName: 'public',
-        TableName: 't1',
-        TableType: 'Table',
-        SequenceColumn: '',
-        Opaque: {
-          opaque: '111'
+        "Success": true,
+        "ConnectionName": "oracle connection",
+        "CatalogName": "catalog",
+        "SchemaName": "public",
+        "TableName": "t1",
+        "TableType": "Table",
+        "Columns": [{
+            "ColumnName": "c1",
+            "Expression": "",
+            "ColumnType": "integer",
+            "ColumnSize": 0,
+            "DecimalDigit": 0
+        }, {
+            "ColumnName": "c2",
+            "Expression": "",
+            "ColumnType": "text",
+            "ColumnSize": 8190,
+            "DecimalDigit": 0
+        }],
+        "SequenceColumn": "",
+        "Opaque": {
+            "opaque": "111"
         }
-      }]
     };
   } catch (e) {
     ctx.throw(500, e);
