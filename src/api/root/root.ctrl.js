@@ -52,7 +52,7 @@ exports.GetSchemaList = async (ctx) => {
 exports.AddSchema = async (ctx) => {
   const { ConnectionName } = ctx.params;
   console.log('ctx.params', ctx.params);
-  console.log('root GetSchemaList', ConnectionName);
+  console.log('root AddSchema', ConnectionName);
   try {
     ctx.body = {
       Success: true
@@ -96,6 +96,33 @@ exports.GetSchema = async (ctx) => {
     ctx.throw(500, e);
   }
 };
+
+exports.GetModelList = async (ctx) => {
+    console.log('root GetModelList');
+    const { ConnectionName } = ctx.params;
+    console.log('ctx.params', ctx.params);
+    try {
+      ctx.body = {
+        "Success": true,
+        "Models": [
+                {
+                    "ModelName": "model1",
+                    "Summery": {
+                        "Summery": ""
+                    }
+                },
+                {
+                    "ModelName": "model2",
+                    "Summery": {
+                        "Summery": ""
+                    }
+                }
+            ]
+        };
+    } catch (e) {
+      ctx.throw(500, e);
+    }
+  };
 
 exports.CollectSchema = async (ctx) => {
   const { ConnectionName } = ctx.params;

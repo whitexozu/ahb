@@ -9,6 +9,6 @@ root.post('/GetSchemaList', rootCtrl.GetSchemaList);
 root.post('/AddSchema', rootCtrl.AddSchema);
 root.post('/GetSchema', rootCtrl.GetSchema);
 root.post('/CollectSchema', rootCtrl.CollectSchema);
-
+root.get('/GetModelList', rootCtrl.GetModelList);
 
 module.exports = root;
