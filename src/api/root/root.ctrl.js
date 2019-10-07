@@ -124,6 +124,190 @@ exports.GetModelList = async (ctx) => {
     }
   };
 
+exports.GetModel = async (ctx) => {
+    const { ConnectionName } = ctx.params;
+    console.log('root GetModel', ConnectionName);
+    try {
+      ctx.body = {
+            "Success": true,
+            "ModelName": "model1",
+            "Summery": {
+                "ExtractConnection": "PG1",
+                "LoadConnection": "AG1",
+                "GenerateData": "2019-10-02"
+            },
+            "Model": {
+                "flows": [{
+                    "flowName": "flow1",
+                    "description": "Flow Description",
+                    "extract": [{
+                        "extractType": "D",
+                        "table": "audits",
+                        "tableCondition": {
+                            "ConnectionName": "PG1",
+                            "CatalogName": "jhkim",
+                            "SchemaName": "public",
+                            "TableName": "audits"
+                        },
+                        "column": [{
+                            "ColumnName": "audit_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "service_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "role_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "created_instant",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "message",
+                            "Expression": "",
+                            "ColumnType": "text",
+                            "ColumnSize": 1048576,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "acting_user_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "command_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "user_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "host_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "audit_type",
+                            "Expression": "",
+                            "ColumnType": "text",
+                            "ColumnSize": 255,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "config_container_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "cluster_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "optimistic_lock_version",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "host_template_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "ip_address",
+                            "Expression": "",
+                            "ColumnType": "text",
+                            "ColumnSize": 255,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "allowed",
+                            "Expression": "",
+                            "ColumnType": "text",
+                            "ColumnSize": 5,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }, {
+                            "ColumnName": "external_account_id",
+                            "Expression": "",
+                            "ColumnType": "integer",
+                            "ColumnSize": 0,
+                            "DecimalDigit": 0,
+                            "SeqChecked": false
+                        }],
+                        "columnShow": false,
+                        "sequenceColumn": ""
+                    }],
+                    "transform": [{
+                        "transformType": "D",
+                        "mode": "single",
+                        "loadCount": 1,
+                        "keys": [""]
+                    }],
+                    "load": [{
+                        "loadType": "D",
+                        "pattern": "sv",
+                        "mode": "create",
+                        "label": {
+                            "vlabel1Alias": "v1",
+                            "vlabel1": "ah_vlabel1",
+                            "elabel": "",
+                            "vlabel2Alias": "v2",
+                            "vlabel2": ""
+                        },
+                        "condition": [{
+                            "alias": "v1",
+                            "propertyName": "",
+                            "assignmentOperator": "=",
+                            "columnName": "",
+                            "logicalOperator": "and"
+                        }],
+                        "propertys": [{
+                            "property": "",
+                            "columnName": ""
+                        }]
+                    }]
+                }]
+            }
+        };
+    } catch (e) {
+    ctx.throw(500, e);
+    }
+};
 exports.CollectSchema = async (ctx) => {
   const { ConnectionName } = ctx.params;
   console.log('root CollectSchema', ConnectionName);
