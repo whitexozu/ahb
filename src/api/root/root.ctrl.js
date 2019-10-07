@@ -2789,3 +2789,23 @@ exports.CollectSchema = async (ctx) => {
     ctx.throw(500, e);
   }
 };
+
+exports.GetModel = async (ctx) => {
+    const { ModelName } = ctx.params;
+    console.log('ctx.params', ctx.params);
+    console.log('root GetModel', ModelName);
+    try {
+      ctx.body = {
+        "Success": true,
+        "ModelName": "model1",
+        "Summery": {
+            "Summery": ""
+        },
+        "Model": {
+            "flows": []
+        }
+      };
+    } catch (e) {
+      ctx.throw(500, e);
+    }
+};
